@@ -1,0 +1,13 @@
+h1. Module Nav
+
+Module Nav is an EE2 accessory that makes two changes to EE2’s top navigation:
+
+* Replaces the “Add-Ons” menu with a new “Modules” menu, populated with links to your modules’ CP backends
+* Moves the old “Add-Ons” menu into the “Admin” menu, under “Add-on Administration”
+
+h2. Installing Module Nav on ExpressionEngine 2.x
+
+# Upload the module_nav folder to system/expressionengine/third_party/
+# Install the accessory in Add-Ons → Accessories
+
+Module Nav does *not* have its own accessory tab, so don’t worry when you don’t see it.
