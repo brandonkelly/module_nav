@@ -14,7 +14,7 @@ class Module_nav_acc {
 	var $name        = 'Module Tab';
 	var $id          = 'module_tab';
 	var $version     = '1.0';
-	var $description = 'My accessory has a lovely description.';
+	var $description = 'Replaces the “Add-Ons” navigation menu with a “Modules” menu.';
 	var $sections    = array();
 
 	/**
