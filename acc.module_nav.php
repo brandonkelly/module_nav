@@ -69,8 +69,11 @@ class Module_nav_acc {
 			{
 				foreach ($query->result_array() as $row)
 				{
-					$name = $row['module_name'];
-					$url = BASE.AMP.'C=addons_modules'.AMP.'M=show_module_cp'.AMP.'module='.strtolower($name);
+					$class = strtolower($row['module_name']);
+					$this->EE->lang->loadfile($class);
+					$name = $this->EE->lang->line($class.'_module_name');
+					$url = BASE.AMP.'C=addons_modules'.AMP.'M=show_module_cp'.AMP.'module='.$class;
+
 					$this->_insert_js('addModuleNav("'.$name.'", "'.$url.'");');
 				}
 			}
