@@ -28,16 +28,6 @@ class Module_nav_acc {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Insert JS
-	 */
-	private function _insert_js($js)
-	{
-		$this->EE->cp->add_to_foot('<script type="text/javascript">'.$js.'</script>');
-	}
-
-	// --------------------------------------------------------------------
-
-	/**
 	 * Set Sections
 	 */
 	function set_sections()
