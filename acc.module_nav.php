@@ -45,6 +45,14 @@ class Module_nav_acc {
 		if ($this->EE->session->userdata['can_access_modules'] == 'y')
 		{
 			$this->EE->cp->load_package_js('module_nav');
+			$this->EE->lang->loadfile('module_nav');
+
+			$lang = array(
+				'addons' => $this->EE->lang->line('nav_addons'),
+				'admin' => $this->EE->lang->line('nav_admin'),
+				'addon_administration' => $this->EE->lang->line('nav_addon_administration'),
+				'modules' => $this->EE->lang->line('nav_modules')
+			);
 
 			$group_id = $this->EE->session->userdata['group_id'];
 
@@ -65,6 +73,8 @@ class Module_nav_acc {
 				                               ORDER BY m.module_name');
 			}
 
+			$modules = array();
+
 			if ($query->num_rows())
 			{
 				foreach ($query->result_array() as $row)
@@ -74,9 +84,14 @@ class Module_nav_acc {
 					$name = $this->EE->lang->line($class.'_module_name');
 					$url = BASE.AMP.'C=addons_modules'.AMP.'M=show_module_cp'.AMP.'module='.$class;
 
-					$this->_insert_js('addModuleNav("'.$name.'", "'.$url.'");');
+					$modules[] = array($name, $url);
 				}
 			}
+
+			$this->EE->cp->add_to_foot('<script type="text/javascript">initModuleNav('
+				.   $this->EE->javascript->generate_json($lang, TRUE) . ', '
+				.   $this->EE->javascript->generate_json($modules, TRUE)
+				. ');</script>');
 		}
 	}
 
