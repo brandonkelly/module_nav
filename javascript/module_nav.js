@@ -17,10 +17,14 @@ initModuleNav = function(lang, modules) {
 		$lastAdminDivider = $('> .nav_divider:last', $adminMenu);
 
 	// Add-on Administration
-	$('<li class="nav_divider" />').insertAfter($lastAdminDivider);
-	$('<li class="parent"><a href="#" tabindex="-1">'+lang.addon_administration+'</a></li>')
-		.insertAfter($lastAdminDivider)
-		.append($addonsMenu);
+	if ($adminMenu.length > 0) {
+		$('<li class="nav_divider" />').insertAfter($lastAdminDivider);
+		$('<li class="parent"><a href="#" tabindex="-1">'+lang.addon_administration+'</a></li>')
+			.insertAfter($lastAdminDivider)
+			.append($addonsMenu);
+	} else {
+		$addonsMenu.remove();
+	}
 
 	// Modules
 	$addonsHeading.html(lang.modules);
