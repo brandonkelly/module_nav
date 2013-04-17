@@ -12,7 +12,7 @@ $('#accessoryTabs > ul > li > a.module_tab').parent('li').remove()
 initModuleNav = function(lang, modules) {
 
 	var $addonsHeading = $('#navigationTabs > li > a:contains("'+lang.addons+'")'),
-		$addonsMenu = $addonsHeading.next(),
+		$addonsMenu = $addonsHeading.next().detach(),
 		$adminMenu = $('#navigationTabs > li > a:contains("'+lang.admin+'")').next(),
 		$lastAdminDivider = $('> .nav_divider:last', $adminMenu);
 
