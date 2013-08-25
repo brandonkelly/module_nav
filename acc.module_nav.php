@@ -79,8 +79,8 @@ class Module_nav_acc {
 			}
 
 			$this->EE->cp->add_to_foot('<script type="text/javascript">initModuleNav('
-				.   $this->EE->javascript->generate_json($lang, TRUE) . ', '
-				.   $this->EE->javascript->generate_json($modules, TRUE)
+				.   json_encode($lang) . ', '
+				.   json_encode($modules)
 				. ');</script>');
 		}
 	}
